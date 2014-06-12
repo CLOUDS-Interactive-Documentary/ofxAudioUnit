@@ -295,7 +295,7 @@ OSStatus RenderCallback(void *inRefCon,
 	OFXAU_PRINT(s, "rendering audio input");
 	
 	if(s == noErr) {
-		size_t buffersToCopy = min(ctx->bufferList->mNumberBuffers, ctx->circularBuffers.size());
+		size_t buffersToCopy = MIN(ctx->bufferList->mNumberBuffers, ctx->circularBuffers.size());
 		
 		for(int i = 0; i < buffersToCopy; i++) {
 			TPCircularBuffer * circBuffer = &ctx->circularBuffers[i];
@@ -321,7 +321,7 @@ OSStatus PullCallback(void *inRefCon,
 {
 	InputContext * ctx = static_cast<InputContext *>(inRefCon);
 	
-	size_t buffersToCopy = min(ioData->mNumberBuffers, ctx->circularBuffers.size());
+	size_t buffersToCopy = MIN(ioData->mNumberBuffers, ctx->circularBuffers.size());
 	
 	for(int i = 0; i < buffersToCopy; i++) {
 		int32_t circBufferSize;
